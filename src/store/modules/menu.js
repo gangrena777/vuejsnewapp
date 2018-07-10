@@ -1,14 +1,20 @@
+
+
 import { firebaseAction } from 'vuexfire'
 
 const state = {
-  menuItems: []
+  menuItems: [],
+  menuItem:[]
 }
 
 const getters = {
-  getMenuItems: state => state.menuItems  
+  getMenuItems: state => state.menuItems,
+  getMenuItem: state=> state.menuItem  
 }
 
 const mutations = {
+addItem: (state, Update_data) => state.menuItem.push(Update_data),
+cancelUpdate:(state)=>state.menuItem = []
 
 }
 

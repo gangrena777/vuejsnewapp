@@ -18,6 +18,10 @@ module.exports = {
         ],
       },
       {
+            test: /\.mp3$/,
+            loader: 'url-loader'
+      },
+      {
         test: /\.scss$/,
         use: [
           'vue-style-loader',

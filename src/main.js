@@ -9,14 +9,18 @@ import Contact from './components/contact.vue'
 import Delivery from './components/delivery.vue'
 import About from './components/about.vue'
 import OrderPage from './components/orderpage.vue'
+import Login from './components/login.vue'
 import {store } from './store/store.js'
-
+import Adminview from './components/adminview'
+import Vmodal from 'vue-js-modal'
 
 Vue.use(VueRouter)
+Vue.use(Vmodal)
 
 const routes  = [
   {  path: '/',name:'homelink',  component : Home},
   { path: '/menu', name:'menulink', component : Menu},
+  { path: '/login', name:'loginlink', component:Login},
   
   { path: '/about', name:'aboutlink', component: About,  children : [
        { path:'/history' , name:'historylink', component: History},
@@ -25,7 +29,11 @@ const routes  = [
   ]
   },
   { path:'/orderpage', name:'orderpagelink', component:OrderPage},
-  {path:'/admin', name:'adminlink' , component:Admin},
+  {path:'/admin', name:'adminlink' , component:Admin,beforeEnter:(to, from, next)=>{
+        alert("Что бы зайти в панель администратора нужно авторизироваться!");
+        next('/login')
+  }},
+  { path:'/adminview', name:'adminviewlink', component: Adminview},
   { path: '*' , redirect :"/"}
 
 ]

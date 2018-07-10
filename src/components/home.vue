@@ -8,7 +8,13 @@
 			 	<button class=" btn btn-success" v-on:click = "letsOrder()"> let's order</button>
 			 </div>
 		</div>
+		<button v-on:click="playSound()" type="button">Click Me to Play Sound</button>
+   
 	</div>
+		
+
+   
+
 </template>
 
 <script >
@@ -18,8 +24,15 @@ export default{
 			this.$router.push({
 				name:'menulink'
 			})
-		}
-	}
+		},
+		playSound() {
+        var audio = new Audio(require('../assets/muzic_play.mp3'));
+        audio.play();
+      }
+    
+
+	
+}
 }
 	
 </script>

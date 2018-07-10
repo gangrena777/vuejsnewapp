@@ -15,6 +15,7 @@
 	  		<tbody v-for='menu,index  in getMenuItems'>
 	  			  <tr>
 	  			  	<th><strong>{{ menu.name}}</strong></th>
+	  			  	<p>{{menu.description}}</p>
 	  			  </tr>
 	  			  <tr  v-for='option in menu.options'>
 	  			  	<td>{{ option.size}}</td>
@@ -30,7 +31,7 @@
 	  	</div>
 	  
 	 
-	  <div  class="col-sm-8">
+	  <div  class="col-sm-8"  v-if='busket.length > 0'>
 	  	
       <div  >    	
       <table  class="table table-hover">
@@ -75,6 +76,10 @@
 	  </div>
 
 	  
+</div>
+<div  class="empty_busket" v-else>
+<h6>Your Basket is empty</h6>
+	<img  src="../assets/basket.jpg">
 </div>
  </div>
 </template>
@@ -172,5 +177,8 @@ import { OrdersRef } from '../firebaseConfig'
 
 </script>
 <style >
-			
+    .empty_busket{
+    	margin: 0 auto;
+    	margin-top: 30px
+    }
 </style>

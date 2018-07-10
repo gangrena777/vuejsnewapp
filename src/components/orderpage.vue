@@ -1,8 +1,8 @@
 <template>
 <div class="row">
-		<h3 class=".panel-title">Order page</h3>
+		
 		<div class="container" v-if="inwork">
-          
+          <h3 class=".panel-title">Order page</h3>
              <p>YOUR ORDER</p>
              <hr>
           <table  class="order_busket table table-hover"">
